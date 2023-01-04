@@ -11,9 +11,6 @@ module.exports = app => {
 
   //query most views video
   router.get("/trending", br_videotrendings.findTrending);
-  
-  // Retrieve a single Tutorial with id
-  router.get("/:id", br_videotrendings.findOne);
 
   // Update a Tutorial with id
   router.put("/:id", br_videotrendings.update);

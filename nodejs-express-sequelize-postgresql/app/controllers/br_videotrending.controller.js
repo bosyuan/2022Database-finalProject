@@ -59,7 +59,7 @@ exports.findAll = (req, res) => {
 exports.findTrending = (req, res) => {
   Br_videotrending.findAll({ 
     order: [['view_count', 'DESC']],
-    attributes:['title', 'view_counts'],
+    attributes:['title', 'view_count'],
     limit : 10,
    })
     .then(data => {
