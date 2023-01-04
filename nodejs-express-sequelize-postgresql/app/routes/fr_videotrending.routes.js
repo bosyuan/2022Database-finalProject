@@ -9,8 +9,8 @@ module.exports = app => {
     // Retrieve all Tutorials
     router.get("/", fr_videotrendings.findAll);
   
-    // Retrieve a single Tutorial with id
-    router.get("/:id", fr_videotrendings.findOne);
+  //query most views video
+  router.get("/trending", fr_videotrendings.findTrending);
   
     // Update a Tutorial with id
     router.put("/:id", fr_videotrendings.update);
