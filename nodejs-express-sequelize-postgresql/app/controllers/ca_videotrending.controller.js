@@ -56,6 +56,23 @@ exports.findAll = (req, res) => {
     });
 };
 
+exports.findTrending = (req, res) => {
+  Ca_videotrending.findAll({ 
+    order: [['view_count', 'DESC']],
+    attributes:['title', 'channeltitle','trending_date', 'view_count'],
+    limit : 10,
+   })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving videos."
+      });
+    });
+};
+
 // Find a single Tutorial with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
