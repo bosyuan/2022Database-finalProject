@@ -16,7 +16,7 @@ files = [('br','BR_youtube_trending_data.csv'),('ca','CA_youtube_trending_data.c
 for con,file in files:
     print(con,file)
     try:
-        api.dataset_download_file('rsrishav/youtube-trending-video-dataset',file_name=file)
+        api.dataset_download_file('rsrishav/youtube-trending-video-dataset',file_name=file,path='../../')
         with zipfile.ZipFile(file+'.zip','r') as zipref:
             zipref.extractall()
         with open(file,'r',encoding="utf-8")as file:
