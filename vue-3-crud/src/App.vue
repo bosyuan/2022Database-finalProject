@@ -42,7 +42,7 @@
       </div>
     </nav>
     
-    <div class="container mt-3">
+    <div class = 'temp'>
       <router-view />
     </div>
   </div>
@@ -55,8 +55,18 @@ export default {
 };
 </script>
 
-<!--
+
+
 <style>
+.temp{
+  margin-top:20px;
+  margin-left:50px;
+  width:auto;
+}
+
+</style>
+<!--
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -65,4 +75,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-</style>-->
+-->
+

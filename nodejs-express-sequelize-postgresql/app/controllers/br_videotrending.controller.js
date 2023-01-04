@@ -17,13 +17,15 @@ exports.create = (req, res) => {
   const video = {
     video_id: req.body.video_id,
     title: req.body.title,
+    publishedat: req.body.publishedat,
     channelId: req.body.channelId,
     channelTitle: req.body.channelTitle,
     trending_data: req.body.trending_data,
     view_count: req.body.view_count,
     like: req.body.like,
     dislike: req.body.dislike,
-    comment_count: req.body.comment_count
+    comment_count: req.body.comment_count,
+    thumbnail_link: req.body.thumbnail_link
   };
 
   // Save Tutorial in the database
@@ -47,7 +49,7 @@ exports.findAll = (req, res) => {
   Br_videotrending.findAll({ where: condition })
     .then(data => {
       res.send(data);
-    })
+    }) 
     .catch(err => {
       res.status(500).send({
         message:
@@ -109,8 +111,6 @@ exports.findDislike = (req, res) => {
 // Find videos with most comments
 exports.findComment = (req, res) => {
   Br_videotrending.findAll({ 
-    order: [['comment_count', 'DESC']],
-    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','comment_count'],
     limit : 10,
    })
     .then(data => {

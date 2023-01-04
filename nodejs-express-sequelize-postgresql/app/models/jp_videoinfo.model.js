@@ -4,18 +4,18 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING(100),
         primaryKey: true
       },
-      publishedat: {
-        type: Sequelize.STRING(100)
-      },
+      // publishedat: {
+      //   type: Sequelize.STRING(100)
+      // },
       categoryid: {
         type: Sequelize.INTEGER
       },
       tags: {
         type: Sequelize.STRING(1000)
       },
-      thumbnail_link: {
-        type: Sequelize.STRING(500)
-      },
+      // thumbnail_link: {
+      //   type: Sequelize.STRING(500)
+      // },
       comments_disabled: {
         type: Sequelize.STRING(10)
       },
@@ -26,5 +26,6 @@ module.exports = (sequelize, Sequelize) => {
     {
       timestamps: false,
     });
+    
     return Jp_videoinfo;
   };

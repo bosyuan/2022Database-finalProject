@@ -30,6 +30,7 @@
         is_show_list: false,
         list_select: ''
       }
+
     },
     methods: {
       click_show_list() {
