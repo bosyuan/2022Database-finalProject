@@ -30,8 +30,8 @@ for con,file in files:
             i =0
             for row in rows:
                 if row[6]==date:
-                    info.writerow([row[0],row[2],row[5],row[7],row[12],row[13],row[14]])
-                    trending.writerow([row[0],row[1],row[3],row[4],row[6],row[8],row[9],row[10],row[11]])
+                    info.writerow([row[0],row[5],row[7],row[13],row[14]])
+                    trending.writerow([row[0],row[1],row[2],row[3],row[4],row[6],row[8],row[9],row[10],row[11],row[12]])
                 # used.append((con,row[0],row[5]))
             videoinfo.close()
             videotrending.close()
