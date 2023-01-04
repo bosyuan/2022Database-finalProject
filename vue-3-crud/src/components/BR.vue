@@ -46,6 +46,8 @@
   </template>
   
   <script>
+  import BRDataService from "../services/BRDataService";
+
   export default {
     data() {
       return {
@@ -84,16 +86,66 @@
       click_show_list() {
         this.is_show_list = !this.is_show_list
       },
-      click_on_radio_list($event) {
-        if (this.list_select == $event.target._value) {
-          this.list_select = ''
-        }
-      },video_id_to_link(id){
-        return "https://www.youtube.com/watch?v="+id
-      },channel_id_to_link(id){
-        return "https://www.youtube.com/channel/"+id
-      }
 
+      click_on_radio_list($event) {
+        console.log($event.target._value);
+        if ('前十最多觀看' == $event.target._value) {
+          this.search_top_view();
+          console.log("check");
+        }
+      },
+
+      search_top_view() {
+        BRDataService.getTopView()
+        .then(response => {
+          this.videos = response.data;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+      },
+      
+      video_id_to_link(id){
+        return "https://www.youtube.com/watch?v="+id
+      },
+      
+      channel_id_to_link(id){
+        return "https://www.youtube.com/channel/"+id
+      },
+      
+      retrieveVideos() {
+        BRDataService.getAll()
+          .then(response => {
+            this.videos = response.data;
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      },
+  
+      refreshList() {
+        this.retrieveVideos();
+        this.currentVideo = null;
+        this.currentIndex = -1;
+      },
+  
+      setActiveVideo(video, index) {
+        this.currentVideo = video;
+        this.currentIndex = video ? index : -1;
+      },
+  
+      removeAllVideos() {
+        BRDataService.deleteAll()
+          .then(response => {
+            console.log(response.data);
+            this.refreshList();
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
     },
   }
   </script>

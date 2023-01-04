@@ -16,10 +16,10 @@ exports.create = (req, res) => {
   // Create a Tutorial
   const video = {
     video_id: req.body.video_id,
-    publishedat: req.body.publishedat,
+    //publishedat: req.body.publishedat,
     categoryid: req.body.categoryid,
     tags: req.body.tags,
-    thumbnail_link: req.body.thumbnail_link,
+    //thumbnail_link: req.body.thumbnail_link,
     comments_disabled: req.body.comments_disabled,
     ratings_disabled: req.body.ratings_disabled
   };

@@ -7,6 +7,9 @@ module.exports = (sequelize, Sequelize) => {
       title: {
         type: Sequelize.STRING(500)
       },
+      publishedat: {
+        type: Sequelize.STRING(100)
+      },
       channelid: {
         type: Sequelize.STRING(500)
       },
@@ -28,7 +31,10 @@ module.exports = (sequelize, Sequelize) => {
       },
       comment_count: {
         type: Sequelize.INTEGER
-      }
+      },
+      thumbnail_link: {
+        type: Sequelize.STRING(500)
+      },
     }, 
     {
       timestamps: false,

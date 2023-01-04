@@ -17,13 +17,15 @@ exports.create = (req, res) => {
   const video = {
     video_id: req.body.video_id,
     title: req.body.title,
+    publishedat: req.body.publishedat,
     channelId: req.body.channelId,
     channelTitle: req.body.channelTitle,
     trending_data: req.body.trending_data,
     view_count: req.body.view_count,
     like: req.body.like,
     dislike: req.body.dislike,
-    comment_count: req.body.comment_count
+    comment_count: req.body.comment_count,
+    thumbnail_link: req.body.thumbnail_link
   };
 
   // Save Tutorial in the database
@@ -47,7 +49,7 @@ exports.findAll = (req, res) => {
   Br_videotrending.findAll({ where: condition })
     .then(data => {
       res.send(data);
-    })
+    }) 
     .catch(err => {
       res.status(500).send({
         message:
@@ -59,7 +61,7 @@ exports.findAll = (req, res) => {
 exports.findTrending = (req, res) => {
   Br_videotrending.findAll({ 
     order: [['view_count', 'DESC']],
-    attributes:['title', 'channeltitle','trending_date', 'view_count'],
+    attributes:['title', 'publishedat', 'channeltitle','trending_date', 'view_count', 'thumbnail_link'],
     limit : 10,
    })
     .then(data => {
