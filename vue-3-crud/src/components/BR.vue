@@ -15,7 +15,6 @@
             
         </div>
         <div  class = "videos">
-          <div> fuck my live </div>
           <ul>
             <div v-for="video in videos" :key = "video.title" >
               <div class = "main_video_box">
@@ -51,35 +50,14 @@
   export default {
     data() {
       return {
-        videos: [
-        { video_id:"s9FH4rDMvds",
-          title: 'LEVEI UM FORA? FINGI ESTAR APAIXONADO POR ELA!', 
-          publish_at:'2020-08-11T22:21:49Z',
-          channel_id: 'UCGfBwrCoi9ZJjKiUK8MmJNw',
-          channel_title:'Pietro Guedes',
-          categoty_id:22,
-          trending_date:'2020-08-12T00:00:00Z',
-          tags:'pietro|guedes|ingrid|ohara|pingrid|vlog|amigos|jully|molina|mansão|mansao|dos|youtubers|gkhouse',
-          view_count:111111,
-          likes:111111,
-          dislikes:11111,
-          comment_count:111112,
-          thumbnail_link: 'https://i.ytimg.com/vi/s9FH4rDMvds/default.jpg',
-          comments_disabled:false,
-          ratings_disabled:false,
-        },
-          
-        { video_id:"jbGRowa5tIk",title: 'ITZY “Not Shy” M/V TEASER', channel_id: 'UCaO6TYtlC8U5ttz62hTrZgg', thumbnail_link: 'https://i.ytimg.com/vi/jbGRowa5tIk/default.jpg', isFav: false },
-        { video_id:"3EfkCrXKZNs",title: 'Oh Juliana PARÓDIA - MC Niack', channel_id: 'UCoXZmVma073v5G1cW82UKkA', thumbnail_link: 'https://i.ytimg.com/vi/3EfkCrXKZNs/default.jpg', isFav: true },
-        ],
+        videos: [],
         list: [
           { text: '前十最多觀看' },
           { text: '前十最多喜歡' },
           { text: '前十最多不喜歡' },
           { text: '前十留言數最多' }
         ],
-        is_show_list: false,
-        list_select: ''
+        is_show_list: false
       }
     },
     methods: {
@@ -90,13 +68,51 @@
       click_on_radio_list($event) {
         console.log($event.target._value);
         if ('前十最多觀看' == $event.target._value) {
-          this.search_top_view();
-          console.log("check");
+          this.search_view();
+        }else if('前十最多喜歡' == $event.target._value) {
+          this.search_likes();
+        }else if('前十最多不喜歡' == $event.target._value) {
+          this.search_dislikes();
+        }else if('前十留言數最多' == $event.target._value) {
+          this.search_comment();
         }
       },
 
-      search_top_view() {
-        BRDataService.getTopView()
+      search_view() {
+        BRDataService.getView()
+        .then(response => {
+          this.videos = response.data;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+      },
+      
+      search_likes() {
+        BRDataService.getLikes()
+        .then(response => {
+          this.videos = response.data;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+      },
+
+      search_dislikes() {
+        BRDataService.getDislikes()
+        .then(response => {
+          this.videos = response.data;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+      },
+
+      search_comment() {
+        BRDataService.getComment()
         .then(response => {
           this.videos = response.data;
           console.log(response.data);
