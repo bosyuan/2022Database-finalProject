@@ -32,7 +32,6 @@ app.get('/', function (req,res) {
   res.sendFile(path + "index.html");
 });
 
-require("./app/routes/video.routes")(app);
 require("./app/routes/br_videoinfo.routes")(app);
 require("./app/routes/br_videotrending.routes")(app);
 require("./app/routes/ca_videoinfo.routes")(app);

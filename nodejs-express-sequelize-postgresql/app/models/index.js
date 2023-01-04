@@ -18,7 +18,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.videos = require("./video.model.js")(sequelize, Sequelize);  
 db.br_videoinfo = require("./br_videoinfo.model.js")(sequelize, Sequelize);
 db.br_videotrending = require("./br_videotrending.model.js")(sequelize, Sequelize);
 db.ca_videoinfo = require("./ca_videoinfo.model.js")(sequelize, Sequelize);
