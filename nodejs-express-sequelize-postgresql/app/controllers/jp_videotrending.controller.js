@@ -80,7 +80,7 @@ exports.findOne = (req, res) => {
 exports.findView = (req, res) => {
   Jp_videotrending.findAll({ 
     order: [['view_count', 'DESC']],
-    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','view_count'],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','view_count', 'likes', 'dislikes', 'comment_count'],
     limit : 10,
    })
     .then(data => {
@@ -97,7 +97,7 @@ exports.findView = (req, res) => {
 exports.findLike = (req, res) => {
   Jp_videotrending.findAll({ 
     order: [['likes', 'DESC']],
-    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','likes'],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','view_count', 'likes', 'dislikes', 'comment_count'],
     limit : 10,
    })
     .then(data => {
@@ -114,7 +114,7 @@ exports.findLike = (req, res) => {
 exports.findDislike = (req, res) => {
   Jp_videotrending.findAll({ 
     order: [['dislikes', 'DESC']],
-    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','dislikes'],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','view_count', 'likes', 'dislikes', 'comment_count'],
     limit : 10,
    })
     .then(data => {
@@ -131,7 +131,7 @@ exports.findDislike = (req, res) => {
 exports.findComment = (req, res) => {
   Jp_videotrending.findAll({ 
     order: [['comment_count', 'DESC']],
-    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','comment_count'],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','view_count', 'likes', 'dislikes', 'comment_count'],
     limit : 10,
    })
     .then(data => {
