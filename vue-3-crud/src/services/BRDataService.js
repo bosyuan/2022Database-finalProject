@@ -9,10 +9,22 @@ class BRDataService {
     return http.get(`/br_videotrending/${id}`);
   }
 
-  getTopView() {
-    return http.get("/br_videotrending/trending");
+  getView() {
+    return http.get("/br_videotrending/view_count");
   }
   
+  getLikes() {
+    return http.get("/br_videotrending/likes");
+  }
+
+  getDislikes() {
+    return http.get("/br_videotrending/dislikes");
+  }
+
+  getComment() {
+    return http.get("/br_videotrending/comment_count");
+  }
+
   create(data) {
     return http.post("/br_videotrending", data);
   }

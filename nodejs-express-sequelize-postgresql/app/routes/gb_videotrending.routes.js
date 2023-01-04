@@ -9,8 +9,11 @@ module.exports = app => {
     // Retrieve all Tutorials
     router.get("/", gb_videotrendings.findAll);
   
-    //query most views video
-    router.get("/trending", gb_videotrendings.findTrending);
+    //query
+    router.get("/view_count", gb_videotrendings.findView);
+    router.get("/likes", gb_videotrendings.findLike);
+    router.get("/dislikes", gb_videotrendings.findDislike);
+    router.get("/comment_count", gb_videotrendings.findComment);
   
     // Update a Tutorial with id
     router.put("/:id", gb_videotrendings.update);
