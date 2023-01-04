@@ -60,9 +60,9 @@ exports.findAll = (req, res) => {
 
 exports.findView = (req, res) => {
   Br_videotrending.findAll({ 
-    // order: [['view_count', 'DESC']],
-    // attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','view_count'],
-    // limit : 10,
+    order: [['view_count', 'DESC']],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','view_count'],
+    limit : 10,
    })
     .then(data => {
       res.send(data);
@@ -111,6 +111,8 @@ exports.findDislike = (req, res) => {
 // Find videos with most comments
 exports.findComment = (req, res) => {
   Br_videotrending.findAll({ 
+    order: [['comment_count', 'DESC']],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','comment_count'],
     limit : 10,
    })
     .then(data => {

@@ -76,11 +76,61 @@ exports.findOne = (req, res) => {
       });
     });
 };
-
-exports.findTrending = (req, res) => {
+exports.findView = (req, res) => {
   Mx_videotrending.findAll({ 
     order: [['view_count', 'DESC']],
-    attributes:['title', 'channeltitle','trending_date', 'view_count'],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','view_count'],
+    limit : 10,
+   })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving videos."
+      });
+    });
+};
+// Find video with most likes
+exports.findLike = (req, res) => {
+  Mx_videotrending.findAll({ 
+    order: [['likes', 'DESC']],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','likes'],
+    limit : 10,
+   })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving videos."
+      });
+    });
+};
+// Find videos with most dislikes
+exports.findDislike = (req, res) => {
+  Mx_videotrending.findAll({ 
+    order: [['dislikes', 'DESC']],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','dislikes'],
+    limit : 10,
+   })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving videos."
+      });
+    });
+};
+// Find videos with most comments
+exports.findComment = (req, res) => {
+  Mx_videotrending.findAll({ 
+    order: [['comment_count', 'DESC']],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','comment_count'],
     limit : 10,
    })
     .then(data => {

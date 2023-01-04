@@ -77,10 +77,10 @@ exports.findOne = (req, res) => {
     });
 };
 
-exports.findTrending = (req, res) => {
+exports.findView = (req, res) => {
   Ru_videotrending.findAll({ 
     order: [['view_count', 'DESC']],
-    attributes:['title', 'channeltitle','trending_date', 'view_count'],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','view_count'],
     limit : 10,
    })
     .then(data => {
@@ -93,7 +93,57 @@ exports.findTrending = (req, res) => {
       });
     });
 };
-
+// Find video with most likes
+exports.findLike = (req, res) => {
+  Ru_videotrending.findAll({ 
+    order: [['likes', 'DESC']],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','likes'],
+    limit : 10,
+   })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving videos."
+      });
+    });
+};
+// Find videos with most dislikes
+exports.findDislike = (req, res) => {
+  Ru_videotrending.findAll({ 
+    order: [['dislikes', 'DESC']],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','dislikes'],
+    limit : 10,
+   })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving videos."
+      });
+    });
+};
+// Find videos with most comments
+exports.findComment = (req, res) => {
+  Ru_videotrending.findAll({ 
+    order: [['comment_count', 'DESC']],
+    attributes:['title','publishedat','trending_date','channeltitle','thumbnail_link','comment_count'],
+    limit : 10,
+   })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving videos."
+      });
+    });
+};
 // Update a Tutorial by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
