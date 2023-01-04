@@ -33,6 +33,6 @@ module.exports = (sequelize, Sequelize) => {
     {
       timestamps: false,
     });
-  
+
     return Br_videotrending;
   };
