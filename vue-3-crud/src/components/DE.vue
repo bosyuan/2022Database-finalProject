@@ -25,7 +25,7 @@
                   <div class = 'channel_box'>
                     <a :href = channel_id_to_link(video.channel_id) class = 'channel_title'>頻道: {{ video.channel_title }}</a>
                     <p class = 'date'>發布時間: {{video.publish_at}}</p>
-                    <p class = 'date'>發燒日期: {{video.trending_date}}</p>
+                    <p class = 'date'>上次更新: {{video.trending_date}}</p>
                   </div>
                   <div>
                     <div class = 'flex_1'>

@@ -4,9 +4,6 @@
       <router-link to="/" class="navbar-brand">homepage</router-link>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link to="/videos" class="nav-link">videos</router-link>
-        </li>
-        <li class="nav-item">
           <router-link to="/BR" class="nav-link">巴西</router-link>
         </li>
         <li class="nav-item">
