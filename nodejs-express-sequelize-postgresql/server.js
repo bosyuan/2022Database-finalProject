@@ -1,11 +1,15 @@
 const express = require("express");
+
+const path = __dirname + '/app/views/'
 // const bodyParser = require("body-parser"); /* deprecated */
 const cors = require("cors");
 
 const app = express();
 
+app.use(express.static(path));
+
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:8080"
 };
 
 app.use(cors(corsOptions));
@@ -24,11 +28,31 @@ db.sequelize.sync();
 // });
 
 // simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+app.get('/', function (req,res) {
+  res.sendFile(path + "index.html");
 });
 
 require("./app/routes/video.routes")(app);
+require("./app/routes/br_videoinfo.routes")(app);
+require("./app/routes/br_videotrending.routes")(app);
+require("./app/routes/ca_videoinfo.routes")(app);
+require("./app/routes/ca_videotrending.routes")(app);
+require("./app/routes/de_videoinfo.routes")(app);
+require("./app/routes/de_videotrending.routes")(app);
+require("./app/routes/fr_videoinfo.routes")(app);
+require("./app/routes/fr_videotrending.routes")(app);
+require("./app/routes/gb_videoinfo.routes")(app);
+require("./app/routes/gb_videotrending.routes")(app);
+require("./app/routes/in_videoinfo.routes")(app);
+require("./app/routes/in_videotrending.routes")(app);
+require("./app/routes/jp_videoinfo.routes")(app);
+require("./app/routes/jp_videotrending.routes")(app);
+require("./app/routes/kr_videoinfo.routes")(app);
+require("./app/routes/kr_videotrending.routes")(app);
+require("./app/routes/mx_videoinfo.routes")(app);
+require("./app/routes/mx_videotrending.routes")(app);
+require("./app/routes/ru_videoinfo.routes")(app);
+require("./app/routes/ru_videotrending.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

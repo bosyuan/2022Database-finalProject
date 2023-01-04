@@ -31,6 +31,15 @@ exports.create = (req, res) => {
     ratings_disabled: req.body.ratings_disabled ? req.body.ratings_disabled : false,
     description: req.body.description
   };
+  const br_videoinfo = {
+    video_id: req.body.video_id,
+    publishedat: req.body.publishedat,
+    categoryid: req.body.categoryid,
+    tags: req.body.tags,
+    thumbnail_link: req.body.thumbnail_link,
+    comments_disabled: req.body.comments_disabled,
+    ratings_disabled: req.body.ratings_disabled
+  };
 
   // Save Tutorial in the database
   Video.create(video)
