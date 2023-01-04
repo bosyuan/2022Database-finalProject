@@ -21,5 +21,5 @@ module.exports = app => {
     // Delete all Tutorials
     router.delete("/", ru_videotrendings.deleteAll);
   
-    app.use("/api/ru_videotrendings", router);
+    app.use("/api/ru_videotrending", router);
   };
