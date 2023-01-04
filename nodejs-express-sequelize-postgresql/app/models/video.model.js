@@ -1,7 +1,8 @@
 module.exports = (sequelize, Sequelize) => {
     const Video = sequelize.define("video", {
       video_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        primaryKey: true
       },
       title: {
         type: Sequelize.STRING

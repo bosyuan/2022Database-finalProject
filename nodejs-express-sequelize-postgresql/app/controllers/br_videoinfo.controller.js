@@ -39,8 +39,8 @@ exports.create = (req, res) => {
 
 // Retrieve all Tutorials from the database.
 exports.findAll = (req, res) => {
-  const title = req.query.title;
-  var condition = title ? { title: { [Op.iLike]: `%${title}%` } } : null;
+  const video_id = req.query.video_id;
+  var condition = video_id ? { video_id: { [Op.iLike]: `%${video_id}%` } } : null;
 
   Br_videoinfo.findAll({ where: condition })
     .then(data => {

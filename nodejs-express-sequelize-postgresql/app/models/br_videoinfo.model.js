@@ -1,7 +1,8 @@
 module.exports = (sequelize, Sequelize) => {
     const Br_videoinfo = sequelize.define("br_videoinfo", {
       video_id: {
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(100),
+        primaryKey: true
       },
       publishedat: {
         type: Sequelize.STRING(100)
@@ -10,7 +11,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.INTEGER
       },
       tags: {
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(1000)
       },
       thumbnail_link: {
         type: Sequelize.STRING(500)
@@ -21,6 +22,9 @@ module.exports = (sequelize, Sequelize) => {
       ratings_disabled: {
         type: Sequelize.STRING(10)
       }
+    }, 
+    {
+      timestamps: false,
     });
   
     return Br_videoinfo;

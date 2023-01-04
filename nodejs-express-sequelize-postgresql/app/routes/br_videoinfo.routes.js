@@ -1,25 +1,25 @@
 module.exports = app => {
-  const br_videoinfos = require("../controllers/br_videoinfo.controller.js")
+  const br_videoinfo = require("../controllers/br_videoinfo.controller.js")
 
   var router = require("express").Router();
 
   // Create a new Tutorial
-  router.post("/", br_videoinfos.create);
+  router.post("/", br_videoinfo.create);
 
   // Retrieve all Tutorials
-  router.get("/", br_videoinfos.findAll);
+  router.get("/", br_videoinfo.findAll);
 
   // Retrieve a single Tutorial with id
-  router.get("/:id", br_videoinfos.findOne);
+  router.get("/:id", br_videoinfo.findOne);
 
   // Update a Tutorial with id
-  router.put("/:id", br_videoinfos.update);
+  router.put("/:id", br_videoinfo.update);
 
   // Delete a Tutorial with id
-  router.delete("/:id", br_videoinfos.delete);
+  router.delete("/:id", br_videoinfo.delete);
 
   // Delete all Tutorials
-  router.delete("/", br_videoinfos.deleteAll);
+  router.delete("/", br_videoinfo.deleteAll);
 
   app.use("/api/br_videoinfo", router);
 };

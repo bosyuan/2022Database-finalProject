@@ -1,33 +1,31 @@
 module.exports = (sequelize, Sequelize) => {
-    const Fr_videotrending = sequelize.define("fr_videotrending", {
+    const Fr_videoinfo = sequelize.define("fr_videoinfo", {
       video_id: {
+        type: Sequelize.STRING(100),
+        primaryKey: true
+      },
+      publishedat: {
         type: Sequelize.STRING(100)
       },
-      title: {
+      categoryid: {
+        type: Sequelize.INTEGER
+      },
+      tags: {
+        type: Sequelize.STRING(1000)
+      },
+      thumbnail_link: {
         type: Sequelize.STRING(500)
       },
-      channelId: {
-        type: Sequelize.STRING(500)
+      comments_disabled: {
+        type: Sequelize.STRING(10)
       },
-      channelTitle: {
-        type: Sequelize.STRING(500)
-      },
-      trending_date: {
-        type: Sequelize.DATE
-      },
-      view_count: {
-        type: Sequelize.INTEGER
-      },
-      like: {
-        type: Sequelize.INTEGER
-      },
-      dislike: {
-        type: Sequelize.INTEGER
-      },
-      comment_count: {
-        type: Sequelize.INTEGER
+      ratings_disabled: {
+        type: Sequelize.STRING(10)
       }
+    }, 
+    {
+      timestamps: false,
     });
   
-    return Fr_videotrending;
+    return Fr_videoinfo;
   };
