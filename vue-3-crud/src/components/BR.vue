@@ -24,15 +24,27 @@
                 <div class = "flex">
                   <img :src="video.thumbnail_link" :alt="video.title" class = 'pic'>
                   <div class = 'channel_box'>
-                    <a :href = channel_id_to_link(video.channel_id) >頻道: {{ video.channel_title }}</a>
-                    <p>發布時間: {{video.publish_at}}</p>
-                    <p>發燒日期: {{video.trending_date}}</p>
+                    <a :href = channel_id_to_link(video.channel_id) class = 'channel_title'>頻道: {{ video.channel_title }}</a>
+                    <p class = 'date'>發布時間: {{video.publish_at}}</p>
+                    <p class = 'date'>發燒日期: {{video.trending_date}}</p>
                   </div>
                   <div>
-                    <p>view_count:{{video.view_count}}</p>
-                    <p>likes:{{video.likes}}</p>
-                    <p>dislikes:{{video.dislikes}}</p>
-                    <p>comment_count:{{video.comment_count}}</p>
+                    <div class = 'flex_1'>
+                      <img src = '../assets/play.png' class = 'icon'>
+                      <p class = 'digit'>   : {{video.view_count}}</p>
+                    </div>
+                    <div class = 'flex_1'>
+                      <img src = '../assets/like.png' class = 'icon'>
+                      <p class = 'digit'>   : {{video.likes}}</p>
+                    </div>
+                    <div class = 'flex_1'>
+                      <img src = '../assets/dislike.png' class = 'icon'>
+                      <p class = 'digit'>   : {{video.dislikes}}</p>
+                    </div>
+                    <div class = 'flex_1'>
+                      <img src = '../assets/comment.png' class = 'icon'>
+                      <p class = 'digit'>   : {{video.comment_count}}</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -68,7 +80,6 @@
           comments_disabled:false,
           ratings_disabled:false,
         },
-          
         { video_id:"jbGRowa5tIk",title: 'ITZY “Not Shy” M/V TEASER', channel_id: 'UCaO6TYtlC8U5ttz62hTrZgg', thumbnail_link: 'https://i.ytimg.com/vi/jbGRowa5tIk/default.jpg', isFav: false },
         { video_id:"3EfkCrXKZNs",title: 'Oh Juliana PARÓDIA - MC Niack', channel_id: 'UCoXZmVma073v5G1cW82UKkA', thumbnail_link: 'https://i.ytimg.com/vi/3EfkCrXKZNs/default.jpg', isFav: true },
         ],
@@ -200,6 +211,10 @@
   .flex{
     display: flex;
   }
+  .flex_1{
+    display: flex;
+    align-items: center;
+  }
   .main_video_box {
     padding:20px;
     margin : 20px;
@@ -213,9 +228,32 @@
   }
   .channel_box{
     margin:10px;
+    margin-left:40px;
+    margin-right:40px;
   }
   .pic{
     height:200px;
+  }
+  .channel_title{
+    height:100px;
+    margin-bottom: 100px;
+    text-align: center;
+    font-weight: bolder;
+  }
+  .title{
+    font-size: 30px;
+    color:blue;
+    font-weight: bolder;
+  }
+  .date{
+    margin-top:20px;
+    height:60px;
+  }
+  .icon{
+    height:30px;
+  }
+  .digit{
+    margin-top:16px;
   }
   </style>
   

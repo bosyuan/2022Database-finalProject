@@ -1,4 +1,4 @@
-<template>
+<template class = 'gray'>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <router-link to="/" class="navbar-brand">homepage</router-link>
@@ -59,10 +59,12 @@ export default {
 
 <style>
 .temp{
-  margin-top:20px;
-  margin-left:50px;
+  padding-top:20px;
+  padding-left:50px;
   width:auto;
+  background-color:antiquewhite;
 }
+
 
 </style>
 <!--
