@@ -14,7 +14,7 @@ cursor = conn.cursor()
 for table, file in zip(tables, files):
   with conn.cursor() as cur:
     # Use the \copy command to copy the data from the file to the table
-    cur.execute(f"copy {table} FROM '{file}' WITH (FORMAT csv, ENCODING 'UTF-8')")
+    cur.execute(f"copy {table} FROM './{file}' WITH (FORMAT csv, ENCODING 'UTF-8')")
 # Commit the changes
 conn.commit()
 # Close the connection
