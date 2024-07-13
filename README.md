@@ -1,5 +1,8 @@
 # 2022Database-finalProject
-To run application
+
+This project builds a database system of trending youtube videos, it can manage auto ordering videos according to social status, or search for status of a certain video.
+Data are crawled from a kaggle dataset, and we have built the auto update machanism to renew our local database accordingly.
+## To run application
 1. ensure their is `node` and `postgre` environment set up
   download **postrge**
   install **node**
@@ -18,7 +21,7 @@ npm install
 node server.js
 ```
 
-For auto update 
+## For auto update 
 1. in commander "!pip install kaggle"
 2. add kaggle.json in /user/users/.kaggle
 3. run auto_updata.py
